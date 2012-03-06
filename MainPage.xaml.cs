@@ -16,7 +16,7 @@ using Microsoft.Phone.Controls.Maps;
 using BingMaps.BingMapGeoCodeService;
 using Microsoft.Phone.Tasks;
 
-namespace UberWP7
+namespace UberText
 {
     public partial class MainPage : PhoneApplicationPage
     {

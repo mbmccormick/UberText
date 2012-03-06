@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace UberWP7
+namespace UberText
 {
     public partial class App : Application
     {
