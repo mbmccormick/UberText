@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UberText", "UberText.csproj", "{65B76A36-EA1F-4831-AAD6-F5CE09606A32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UberText", "UberText\UberText.csproj", "{65B76A36-EA1F-4831-AAD6-F5CE09606A32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
