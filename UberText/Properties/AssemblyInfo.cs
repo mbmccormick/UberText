@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UberText")]
+[assembly: AssemblyTitle("Uber Text")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Matt McCormick")]
-[assembly: AssemblyProduct("UberText")]
-[assembly: AssemblyCopyright("Copyright © Matt McCormick 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Uber Text")]
+[assembly: AssemblyCopyright("Copyright ©  Matt McCormick 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("62e99b6d-7b25-4b90-ba65-f88c7d79075d")]
+[assembly: Guid("d9de883e-f691-42f1-8e08-ecbf0ebf1f27")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,6 +32,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0")]
+[assembly: AssemblyFileVersion("1.1.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

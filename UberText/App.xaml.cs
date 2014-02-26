@@ -1,105 +1,154 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Diagnostics;
+using System.Resources;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
+using System.Windows.Markup;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using UberText.Common;
+using System.IO.IsolatedStorage;
+using Microsoft.Phone.Tasks;
 
 namespace UberText
 {
     public partial class App : Application
     {
-        /// <summary>
-        /// Provides easy access to the root frame of the Phone Application.
-        /// </summary>
-        /// <returns>The root frame of the Phone Application.</returns>
-        public PhoneApplicationFrame RootFrame { get; private set; }
+        public static string FeedbackEmailAddress = "feedback@mbmccormick.com";
 
-        /// <summary>
-        /// Constructor for the Application object.
-        /// </summary>
+        public static string VersionNumber
+        {
+            get
+            {
+                string assembly = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+                string[] version = assembly.Split('=')[1].Split(',')[0].Split('.');
+
+                return version[0] + "." + version[1];
+            }
+        }
+
+        public static string ExtendedVersionNumber
+        {
+            get
+            {
+                string assembly = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+                string[] version = assembly.Split('=')[1].Split(',')[0].Split('.');
+
+                return version[0] + "." + version[1] + "." + version[2];
+            }
+        }
+
+        public static string PlatformVersionNumber
+        {
+            get
+            {
+                return System.Environment.OSVersion.Version.ToString(3);
+            }
+        }
+
+        public static PhoneApplicationFrame RootFrame { get; private set; }
+
         public App()
         {
-            // Global handler for uncaught exceptions. 
+            // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 
-            // Standard Silverlight initialization
+            // Standard XAML initialization
             InitializeComponent();
 
             // Phone-specific initialization
             InitializePhoneApplication();
-
-            // Show graphics profiling information while debugging.
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                // Display the current frame rate counters.
-                Application.Current.Host.Settings.EnableFrameRateCounter = true;
-
-                // Show the areas of the app that are being redrawn in each frame.
-                //Application.Current.Host.Settings.EnableRedrawRegions = true;
-
-                // Enable non-production analysis visualization mode, 
-                // which shows areas of a page that are handed off to GPU with a colored overlay.
-                //Application.Current.Host.Settings.EnableCacheVisualization = true;
-
-                // Disable the application idle detection by setting the UserIdleDetectionMode property of the
-                // application's PhoneApplicationService object to Disabled.
-                // Caution:- Use this under debug mode only. Application that disables user idle detection will continue to run
-                // and consume battery power when the user is not using the phone.
-                PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
-            }
-
         }
 
-        // Code to execute when the application is launching (eg, from Start)
-        // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            SmartDispatcher.Initialize(RootFrame.Dispatcher);
         }
 
-        // Code to execute when the application is activated (brought to foreground)
-        // This code will not execute when the application is first launched
+        public static void PromptForMarketplaceReview()
+        {
+            string currentVersion = App.VersionNumber;
+            if (IsolatedStorageSettings.ApplicationSettings.TryGetValue<string>("CurrentVersion", out currentVersion) == false)
+                currentVersion = App.VersionNumber;
+
+            DateTime installDate = DateTime.UtcNow;
+            if (IsolatedStorageSettings.ApplicationSettings.TryGetValue<DateTime>("InstallDate", out installDate) == false)
+                installDate = DateTime.UtcNow;
+
+            if (currentVersion != App.VersionNumber) // override if this is a new version
+                installDate = DateTime.UtcNow;
+
+            if (DateTime.UtcNow.AddDays(-3) >= installDate) // prompt after 3 days
+            {
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = "Review Uber Text",
+                    Message = "It's been a few days since you downloaded Uber Text. Would you like to leave a review for it on the Windows Phone Store?",
+                    LeftButtonContent = "yes",
+                    RightButtonContent = "no",
+                    IsFullScreen = false
+                };
+
+                messageBox.Dismissed += (s1, e1) =>
+                {
+                    switch (e1.Result)
+                    {
+                        case CustomMessageBoxResult.LeftButton:
+                            MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
+                            marketplaceReviewTask.Show();
+
+                            installDate = DateTime.MaxValue; // they have rated, don't prompt again
+
+                            break;
+                        default:
+                            installDate = DateTime.UtcNow; // they did not rate, prompt again in 2 days
+                            break;
+                    }
+                };
+
+                messageBox.Show();
+            }
+
+            IsolatedStorageSettings.ApplicationSettings["CurrentVersion"] = currentVersion; // save current version of application
+            IsolatedStorageSettings.ApplicationSettings["InstallDate"] = installDate; // save install date
+        }
+
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
         }
 
-        // Code to execute when the application is deactivated (sent to background)
-        // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
         }
 
-        // Code to execute when the application is closing (eg, user hit Back)
-        // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
         }
 
-        // Code to execute if a navigation fails
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            if (System.Diagnostics.Debugger.IsAttached)
+            if (Debugger.IsAttached)
             {
                 // A navigation has failed; break into the debugger
-                System.Diagnostics.Debugger.Break();
+                Debugger.Break();
             }
         }
 
-        // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            if (System.Diagnostics.Debugger.IsAttached)
+            LittleWatson.ReportException(e.ExceptionObject, null);
+
+            RootFrame.Dispatcher.BeginInvoke(() =>
+            {
+                LittleWatson.CheckForPreviousException(false);
+            });
+
+            e.Handled = true;
+
+            if (Debugger.IsAttached)
             {
                 // An unhandled exception has occurred; break into the debugger
-                System.Diagnostics.Debugger.Break();
+                Debugger.Break();
             }
         }
 
@@ -116,11 +165,16 @@ namespace UberText
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
+
+            // Handle reset requests for clearing the backstack
+            RootFrame.Navigated += CheckForResetNavigation;
+
+            GlobalLoading.Instance.Initialize(RootFrame);
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
@@ -135,6 +189,30 @@ namespace UberText
 
             // Remove this handler since it is no longer needed
             RootFrame.Navigated -= CompleteInitializePhoneApplication;
+        }
+
+        private void CheckForResetNavigation(object sender, NavigationEventArgs e)
+        {
+            // If the app has received a 'reset' navigation, then we need to check
+            // on the next navigation to see if the page stack should be reset
+            if (e.NavigationMode == NavigationMode.Reset)
+                RootFrame.Navigated += ClearBackStackAfterReset;
+        }
+
+        private void ClearBackStackAfterReset(object sender, NavigationEventArgs e)
+        {
+            // Unregister the event so it doesn't get called again
+            RootFrame.Navigated -= ClearBackStackAfterReset;
+
+            // Only clear the stack for 'new' (forward) and 'refresh' navigations
+            if (e.NavigationMode != NavigationMode.New && e.NavigationMode != NavigationMode.Refresh)
+                return;
+
+            // For UI consistency, clear the entire page stack
+            while (RootFrame.RemoveBackEntry() != null)
+            {
+                ; // do nothing
+            }
         }
 
         #endregion

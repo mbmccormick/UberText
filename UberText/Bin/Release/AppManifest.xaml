@@ -1,0 +1,9 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="`" EntryPointType="UberText.App" RuntimeVersion="4.7.50308.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="`" Source="`.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart x:Name="RestSharp.WindowsPhone" Source="RestSharp.WindowsPhone.dll" />
+    <AssemblyPart x:Name="YourLastAboutDialog" Source="YourLastAboutDialog.dll" />
+  </Deployment.Parts>
+</Deployment>

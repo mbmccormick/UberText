@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<About>
+  <App Title="Uber Text"
+       Author="Matt McCormick"
+       Description=""
+       Publisher=""
+       AdditionalNotes="This application uses the Uber text messaging interface but is not endorsed or certified by Uber.\n\nSwipe right to left for legal notices." />
+  <Items>
+    <MainItem Title="about"
+              AppAuthorLabel="by"
+              AppDescriptionLabel=""
+              AppPublisherLabel=""
+              AppVersionLabel="Version:"
+              AppAdditionalNotesLabel="Additional Notes:"
+              AppReviewButtonContent="review this app">
+      <Links>
+        <Link NavigateUri="http://mbmccormick.com"
+              Content="http://mbmccormick.com"
+              Label="Website:" />
+        <Link NavigateUri="mailto:feedback@mbmccormick.com"
+              Content="feedback@mbmccormick.com"
+              Label="Support:" />
+      </Links>
+    </MainItem>
+    <Item Title="legal" Type="text">
+      Privacy Policy
+      Uber Text is a client application designed for connecting you with the excellent Uber service. Note that by using the Uber service, you also are likely bound by their terms of service (available at https://www.uber.com/legal/terms) as well as their privacy policy (available at https://www.uber.com/legal/privacy). This policy is additive to that of the Uber privacy policy, since Uber Text is only a client application.
+
+      Information Collected
+      In the event of an application error, crash, or problem, we may ask you to send an email message with crash information. Such an email may contain personally identifiable information, and it is your choice whether to send such a message. While using the app, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you and help you resolve support or assistance with the app. This will happen through a prompt asking for feedback, allowing you to send an e-mail message, and is not automatic. In order to provide you with a better experience, to improve the application and its services, we may share non-identifying information (such as the current page within the application being viewed) to serve you better and analyze and understand how the app is used.
+
+      Age Policy
+      Within accordance of Microsoft's Application Certification Requirements for Windows Phone, you must not create an account if you are not of the age of 13. As the Uber application does not require an account, this clause is handled by the Uber terms of use, which designates that those younger than 13 may not use the service.
+
+      Notes
+      Uber is a trademark of Uber Technologies. This application uses the Uber text messaging interface but is not endorsed or certified by Uber.
+
+      Contacting the Author
+      If you have any questions about this Privacy Policy, please send an email to feedback@mbmccormick.com.
+
+    </Item>
+    <Item Title="what's new?" Type="text">
+      Version 1.1
+      This release includes several bug fixes to improve reliability of location services and improves performance of the app.
+
+      Version 1.0
+      This is the first release of Uber Text and contains the basic features needed for interacting with the Uber text messaging interface. This version is fully compatible with Windows Phone 7.5.
+
+    </Item>
+  </Items>
+</About>

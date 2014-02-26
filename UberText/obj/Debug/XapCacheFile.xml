@@ -1,0 +1,25 @@
+﻿<xapCache source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Bin\Debug\UberText_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="2/1/2014 12:35:41 PM">
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\obj\Debug\UberText.dll" archivePath="UberText.dll" lastWriteTime="2/1/2014 12:35:39 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="9/27/2013 10:39:26 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Content\About\AboutStyles.xaml" archivePath="Content\About\AboutStyles.xaml" lastWriteTime="9/28/2013 9:31:07 AM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Help.png" archivePath="Toolkit.Content\ApplicationBar.Help.png" lastWriteTime="9/28/2013 11:52:06 AM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="9/27/2013 10:42:17 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Content\About\Data.xml" archivePath="Content\About\Data.xml" lastWriteTime="2/1/2014 12:30:53 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="9/27/2013 10:44:58 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="9/27/2013 10:44:58 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="9/27/2013 10:44:58 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="9/27/2013 10:44:58 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="9/27/2013 10:44:58 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2/1/2014 12:35:40 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="9/27/2013 10:44:57 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\packages\YLAD.2.1.0\lib\windowsphone8\YourLastAboutDialog.dll" archivePath="YourLastAboutDialog.dll" lastWriteTime="9/27/2013 10:45:06 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\packages\YLAD.2.1.0\lib\windowsphone8\YourLastAboutDialog.xml" archivePath="YourLastAboutDialog.xml" lastWriteTime="9/27/2013 10:45:06 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Background.png" archivePath="Background.png" lastWriteTime="9/27/2013 10:39:26 PM" />
+  <file source="C:\Users\Matt\Documents\Visual Studio 2012\Projects\UberText\UberText\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2/1/2014 12:35:40 PM" />
+</xapCache>

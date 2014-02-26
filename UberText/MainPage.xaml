@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage 
+﻿<phone:PhoneApplicationPage
     x:Class="UberText.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,26 +7,36 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" shell:SystemTray.Opacity="0.5">
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0.5">
 
-    <StackPanel x:Name="LayoutRoot" Background="Transparent">
-        <maps:Map x:Name="mapLocation" Height="532" CredentialsProvider="AjeRbF5SN4mPdesrT0tBUM4BVw4L7gutyV9OjgxmJ7lHDOcyZL46aAJuRnhOC1rK" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" IsHitTestVisible="False"></maps:Map>
-        <TextBlock x:Name="txtAddress" Style="{StaticResource PhoneTextExtraLargeStyle}" Text="Locating..." Height="124" TextWrapping="Wrap" Margin="12,18,12,12" TextAlignment="Center"></TextBlock>
-        <Button x:Name="btnRequest" Content="request pickup" Height="80" Click="btnRequest_Click"></Button>
-    </StackPanel>
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <maps:Map x:Name="mapLocation" Grid.Row="0" ZoomLevel="16" IsHitTestVisible="False" />
+
+        <TextBlock x:Name="txtLocation" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PhoneTextTitle2Style}" Text="Loading..." />
+    </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton Text="send" IconUri="/Toolkit.Content/ApplicationBar.Check.png" Click="mnuSend_Click" />
+                <shell:ApplicationBarIconButton Text="help" IconUri="/Toolkit.Content/ApplicationBar.Help.png" Click="mnuHelp_Click" />
+            </shell:ApplicationBar.Buttons>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="mnuPrivacyPolicy" Text="privacy policy" Click="mnuPrivacyPolicy_Click" />
-                <shell:ApplicationBarMenuItem x:Name="mnuToggleLocation" Text="turn off location" Click="mnuToggleLocation_Click" />
-                <shell:ApplicationBarMenuItem x:Name="mnuHelp" Text="uber help" Click="mnuHelp_Click" />
+                <shell:ApplicationBarMenuItem x:Name="mnuToggleLocation" Text="turn location off" Click="mnuToggleLocation_Click" />
+                <shell:ApplicationBarMenuItem Text="about uber text" Click="mnuAbout_Click" />
+                <shell:ApplicationBarMenuItem Text="feedback" Click="mnuFeedback_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
